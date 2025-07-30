@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>English to SQL Converter</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>English to SQL Translator</h1>
+        <form method="post">
+            <input type="text" name="query" placeholder="Ask a question..." value="{{ query or '' }}" required>
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if sql %}
+        <div class="output">
+            <h2>Generated SQL</h2>
+            <pre>{{ sql }}</pre>
+        </div>
+        {% endif %} {% if result %}
+        <div class="output">
+            <h2>Query Result</h2>
+            <pre>{{ result }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
